@@ -1,0 +1,30 @@
+<html>
+<head>
+<title>aaa</title>
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<style>
+
+#box{position: absolute;width: 200px;height: 200px;background: red;}
+</style>
+<script type="text/javascript">
+$(function(){ 
+var k=document.getElementById("box");
+		var i,len,child=k.firstElementChild;
+		while(child!=k.lastElementChild)
+		{
+			child.innerHTML="123";
+			child=child.nextElementSibling;
+		}
+})
+
+
+</script>
+</head>
+<body>
+<button type="button" id="aaa" onclick="copyText()">Click Me!</button>
+<button type="button" id="bbb" onclick="att()">Click Me2!</button>
+<input type="text" name="lname" id="lname"/>
+<button type="button" id="bbb" onclick="confi()">xiugai!</button>
+<div id="box"><div id="box2"></div><div id="box3"></div><div id="box4">aaa</div></div><div id="box5"></div>
+</body>
+</html>
