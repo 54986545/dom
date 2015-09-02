@@ -1,0 +1,92 @@
+<html>
+<head>
+<style>
+
+#box{position: absolute;width: 200px;height: 200px;background: red;}
+</style>
+<script type="text/javascript">
+
+//两种面向对象的写法，第一种不用new，第二种用new
+
+window.onload = function (){
+    var drag = new Drag('box');
+
+    drag.init();
+};
+
+// 构造函数Drag
+function Drag(id){
+    this.obj = document.getElementById(id);
+    this.disX = 0;
+    this.disY = 0;
+}
+
+Drag.prototype.init = function (){
+    // this指针
+    var me = this;
+
+    this.obj.onmousedown = function (e){
+        var e = e || event;
+        me.mouseDown(e);
+
+        // 阻止默认事件
+        return false;
+    };
+};
+
+Drag.prototype.mouseDown = function (e){
+    // this指针
+    var me = this;
+    this.disX = e.clientX - this.obj.offsetLeft;
+    this.disY = e.clientY - this.obj.offsetTop;
+
+    document.onmousemove = function (e){
+        var e = e || event;
+
+        me.mouseMove(e);
+    };  
+
+    document.onmouseup = function (){
+        me.mouseUp();
+    }
+};
+
+Drag.prototype.mouseMove = function (e){
+    this.obj.style.left = (e.clientX - this.disX) + 'px';
+    this.obj.style.top = (e.clientY - this.disY) + 'px';
+};
+
+Drag.prototype.mouseUp = function (){
+    document.onmousemove = null;
+    document.onmouseup = null;
+};
+var a={
+name:"wangjianan",
+age:30,
+go:function(){
+alert("name="+this.name+",age="+this.age);
+}
+}
+//var c=new a();
+//a.go();
+function b(){
+this.name="qianbeisi";
+this.age=30;
+
+}
+b.prototype.go=function(){
+alert("name="+this.name+",age="+this.age);
+}
+var c=new b();
+
+//alert(c.arguments.length);
+</script>
+</head>
+<body>
+<button type="button" id="aaa" onclick="copyText()">Click Me!</button>
+<button type="button" id="bbb" onclick="att()">Click Me2!</button>
+<input type="text" name="lname" id="lname"/>
+<button type="button" id="bbb" onclick="confi()">xiugai!</button>
+<div id="box"></div>
+</body>
+</html>
