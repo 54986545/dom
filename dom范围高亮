@@ -1,0 +1,33 @@
+
+<html>
+<head>
+<script type="text/javascript" src="jquery-2.1.1.js"></script>
+<style>
+
+#box{position: absolute;width: 200px;height: 200px;background: red;}
+.highlight{color:#fc5;background-color:#0f581a;}
+</style>
+
+</head>
+<body><p id="p1"><b>Hello</b> World</p></body>
+</html>
+
+<script type="text/javascript">
+
+
+      var oP1=document.getElementById("p1");
+      hellonode=oP1.firstChild.firstChild;
+      worldNode=p1.lastChild;
+      
+      var range=document.createRange();
+      range.setStart(hellonode,2);
+      range.setEnd(worldNode,3);
+      range.selectNode(hellonode);
+      var span=document.createElement("span");
+      span.style.backgroundColor="yellow";
+      range.surroundContents(span);
+      
+      //var fragment=range.extractContents();
+      //oP1.parentNode.appendChild(fragment);
+      
+</script>
