@@ -22,6 +22,7 @@
       var range=document.createRange();
       range.setStart(hellonode,2);
       range.setEnd(worldNode,3);
+      // 为了插入《span》范围必须包含整个do选取（不仅仅包含选中的dom节点）
       range.selectNode(hellonode);
       var span=document.createElement("span");
       span.style.backgroundColor="yellow";
